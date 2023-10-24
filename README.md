@@ -9,4 +9,4 @@ Currently, two official plugins are available:
 
 ================================================================
 
-# React-Vite with TailwindCSS, Sequelize, MySQL on IIS Server
+# React-Vite with TailwindCSS, Axios on IIS Server

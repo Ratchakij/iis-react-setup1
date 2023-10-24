@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom";
 
+import { useAuth } from "../hooks/use-auth";
+
 import MenuItem from "./MenuItem";
-// import useAuth from "../hooks/useAuth";
 
 const menus = [
   { id: 1, to: "/", name: "Dashboard" },
@@ -14,7 +15,7 @@ const menus = [
 
 export default function Navbar() {
   const location = useLocation();
-  //   const { logout } = useAuth();
+  const { logout } = useAuth();
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function Navbar() {
           </div>
           <button
             className="inline-block px-4 py-2 leading-none  text-white hover:text-teal-200 mt-4 lg:mt-0"
-            // onClick={logout}
+            onClick={logout}
           >
             Sign out
           </button>

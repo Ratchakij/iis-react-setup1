@@ -2,19 +2,22 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import MenuItem1 from "./MenuItem1";
-// import useAuth from "../hooks/useAuth";
+import { useAuth } from "../hooks/use-auth";
 
-const Button = (props) => {
-  return (
-    <button className="bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500">
-      {props.children}
-    </button>
-  );
-};
+// const Button = (props) => {
+//   return (
+//     <button
+//       className="bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500"
+//       onClick={logout}
+//     >
+//       {props.children}
+//     </button>
+//   );
+// };
 
 export default function Navbar1() {
   const location = useLocation();
-  //   const { logout } = useAuth();
+  const { logout } = useAuth();
 
   const Links = [
     { link: "/", name: "DASHBOARD" },
@@ -35,6 +38,8 @@ export default function Navbar1() {
           </span>
           ARK Insure Broker
         </div>
+
+        {/* HAMBURGER MENU */}
         <div
           className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
           onClick={() => setOpen(!open)}
@@ -58,12 +63,13 @@ export default function Navbar1() {
               active={location.pathname === link.link}
             />
           ))}
-          <Button
-          // onClick={logout}
-          >
-            Logout
-          </Button>
+          <div className="md:hidden">Logout</div>
         </ul>
+
+        {/* Hide elements on small screen */}
+        <div className="text-gray-800 hover:text-gray-400 duration-500 hidden md:block">
+          Logout
+        </div>
       </div>
     </div>
   );
